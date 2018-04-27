@@ -121,7 +121,21 @@ Optional `opts` include:
 
 Create a new user with the provided email and password.  Returns a promise that contains a response object.
 
-TODO: provide example response obeject.
+Example response object: 
+
+```js
+{ id: '3d4dbf6f-0ef5-4377-8dc0-8aa89b385fc0',
+  aud: '',
+  role: '',
+  email: 'example@gmail.com',
+  confirmation_sent_at: '2018-04-27T22:36:59.636416916Z',
+  app_metadata: { provider: 'email' },
+  user_metadata: null,
+  created_at: '2018-04-27T22:36:59.632133283Z',
+  updated_at: '2018-04-27T22:37:00.061039863Z' }
+```
+
+If an error occurs during the request, the promise may be rejected with an Error, `HTTPError`, `TextHTTPError`, or `JSONHTTPError`.  See [micro-api-client-lib error types](https://github.com/netlify/micro-api-client-lib#class-httperror-extends-error).
 
 ### `auth.confirm(token)`
 
