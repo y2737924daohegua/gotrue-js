@@ -16,7 +16,7 @@ yarn add gotrue-js
 ## Usage
 
 ```js
-import GoTrue from 'gotrue-js'  
+import GoTrue from 'gotrue-js'
 
 const auth = new GoTrue();
 
@@ -73,7 +73,7 @@ admin.list(audience).then(
 )
 
 const user = { id: 1234 }
-admin.getUser(user).then( 
+admin.getUser(user).then(
   user => console.log("User object: %o", user),
   error => console.log("Failed to retrieve user: %o", error)
 )
@@ -95,3 +95,69 @@ admin.deleteUser(user).then(
   error => console.log("Failed to delete user: %o", error)
 )
 ```
+
+
+## API
+
+### `import GoTrue from "gotrue-js"`
+
+Import Gotrue class.
+
+### `auth = new GoTrue([opts])`
+
+Create a new GoTrue instance.
+
+Optional `opts` include:
+
+```js
+{
+  APIUrl: '/.netlify/identity',
+  audience: "", // Set the X-JWT-AUD header TODO: write about why you would set this
+  setCookie: fase // tells the API to set a cookie TODO: What is this for?
+}
+```
+
+### `auth.signup(email, password)`
+
+Create a new user with the provided email and password.  Returns a promise that contains a response object.
+
+TODO: provide example response obeject.
+
+### `auth.confirm(token)`
+
+### `auth.login(email, password)`
+
+### `auth.requestPasswordRecovery(email)`
+
+### `auth.recover(recoveryToken)`
+
+### `user = auth.crrentUser()`
+
+Return the current user object.
+
+### `user.update( attributes )`
+
+### `user.jwd()`
+
+### `user.logout()`
+
+### `admin = auth.admin()`
+
+### `admin.list(audience)`
+
+### `admin.getUser(userObject)`
+
+### `admin.updateUser(userObject, attributes)`
+
+### `admin.createUser(email, password, [attributes])`
+
+### `admin.deleteUser(userObject)`
+
+
+
+## See also
+
+- [gotrue]()
+- [netlify-identity-widget]()
+- [micro-api-client-library]()
+- [Netlify identity docs]()
